@@ -5,9 +5,7 @@
 }
 
 body{
-    height: 100vh;
-    display: flex;
-    background: #07455e;
+    background-image: url(img/galaxia.jpg);
 }
 
 .memory-game{
@@ -45,7 +43,7 @@ body{
     padding: 20px;
     position: absolute;
     border-radius: 5px;
-    background: #1c7ccc;
+    background: #192630;
     backface-visibility: hidden;
 }
 
