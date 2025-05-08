@@ -2,6 +2,7 @@ const cards = document.querySelectorAll('.memory-card');
 const souncard = new Audio('audio/efeito-sonoro-de-cartas.wav')
 const soundmatch = new Audio('audio/som-score-1.mp3')
 const soundbackground = new Audio('audio/musica-de-fundo.wav')
+const sounderror = new Audio('audio/som-erro.wav')
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -18,7 +19,6 @@ function flipCard() {
         firstCard = this;
         souncard.play();
 
-        
         return;
     } 
 
@@ -38,7 +38,8 @@ function checkForMatch() {
         soundmatch.currentTime = 0;
         soundmatch.play();
     } else {
-        soundmatch.pause(); 
+        soundmatch.pause();
+        sounderror.play(); 
     }
 }
 
@@ -65,6 +66,7 @@ function unflipCards() {
 function resetBoard() {
     [hasFlippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
+
 }
 
 (function shuffle() {
@@ -77,7 +79,7 @@ function resetBoard() {
 soundbackground.loop = true;
 document.addEventListener('click', () => {
     soundbackground.play();
-    soundbackground.volume = 1; 
+    soundbackground.volume = 0.5; 
 });
 
 cards.forEach(card => card.addEventListener('click', flipCard));
