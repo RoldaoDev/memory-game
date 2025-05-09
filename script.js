@@ -79,7 +79,7 @@ function resetBoard() {
 soundbackground.loop = true;
 document.addEventListener('click', () => {
     soundbackground.play();
-    soundbackground.volume = 0.5; 
+    soundbackground.volume = 0.3; 
 });
 
 cards.forEach(card => card.addEventListener('click', flipCard));
